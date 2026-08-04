@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PokeMMO Farm Guide — La base de datos de farmeo hecha por la comunidad</title>
+<meta name="description" content="Guías de farmeo para PokeMMO: money, berries, items, alpha, gym, payday, pickup y breeding. Proyecto de fans, para fans.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark" aria-hidden="true">⬡</span>
+      <span class="logo-text">PokeMMO<strong>Farm</strong>Guide</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#categorias">Categorías</a>
+      <a href="#destacados">Destacados</a>
+      <a href="#sobre">Sobre el proyecto</a>
+      <a href="https://github.com/" target="_blank" rel="noopener" class="nav-github">GitHub</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Proyecto de fans · No afiliado a PokeMMO ni a The Pokémon Company</p>
+      <h1>La ruta más rápida hacia<br><span class="accent-gold">tu próximo farmeo.</span></h1>
+      <p class="hero-sub">
+        Money, berries, items, alpha, gym, payday, pickup y breeding —
+        organizado, verificado por la comunidad y siempre gratis.
+      </p>
+
+      <form class="search-box" id="search-form" role="search">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="search-input" placeholder="Busca una categoría, ítem o zona…" autocomplete="off">
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORÍAS ============ -->
+  <section class="categorias" id="categorias">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Elige tu ruta</h2>
+        <p>Cada categoría es una puerta a guías completas: equipo, movimientos, rutas y consejos.</p>
+      </div>
+
+      <div class="cat-grid" id="cat-grid">
+
+        <a href="pages/money/" class="cat-card" data-cat="money" style="--cat-color:#f2c14e;">
+          <span class="cat-icon">🪙</span>
+          <h3>Money</h3>
+          <p>Las rutas más rentables por hora de juego.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/berries/" class="cat-card" data-cat="berries" style="--cat-color:#ef7c6b;">
+          <span class="cat-icon">🍓</span>
+          <h3>Berries</h3>
+          <p>Dónde y cómo cultivar cada baya de forma eficiente.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/items/" class="cat-card" data-cat="items" style="--cat-color:#4fd1c5;">
+          <span class="cat-icon">🎒</span>
+          <h3>Items</h3>
+          <p>Objetos clave y las mejores zonas para conseguirlos.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/gym/" class="cat-card" data-cat="gym" style="--cat-color:#a78bfa;">
+          <span class="cat-icon">🏟️</span>
+          <h3>Gym</h3>
+          <p>Estrategias y equipos para superar cada gimnasio.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/alpha/" class="cat-card" data-cat="alpha" style="--cat-color:#ef4444;">
+          <span class="cat-icon">🔺</span>
+          <h3>Alpha</h3>
+          <p>Cacería de Pokémon alpha: ubicaciones y equipo recomendado.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/payday/" class="cat-card" data-cat="payday" style="--cat-color:#6ee7b7;">
+          <span class="cat-icon">💵</span>
+          <h3>Payday</h3>
+          <p>Farmeo pasivo usando el movimiento Payday.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/pickup/" class="cat-card" data-cat="pickup" style="--cat-color:#60a5fa;">
+          <span class="cat-icon">🧲</span>
+          <h3>Pickup</h3>
+          <p>Equipos y rutas para maximizar la habilidad Pickup.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/breeding/" class="cat-card" data-cat="breeding" style="--cat-color:#f472b6;">
+          <span class="cat-icon">🥚</span>
+          <h3>Breeding</h3>
+          <p>Naturalezas, IVs y cadenas de crianza óptimas.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+        <a href="pages/farmeros/" class="cat-card" data-cat="farmeros" style="--cat-color:#fb923c;">
+          <span class="cat-icon">🧑‍🌾</span>
+          <h3>Farmeros</h3>
+          <p>Pokémon herramienta que se usan dentro de otros farmeos.</p>
+          <span class="cat-count">Guías próximamente</span>
+        </a>
+
+      </div>
+
+      <p class="no-results" id="no-results" hidden>No encontramos categorías que coincidan con tu búsqueda.</p>
+    </div>
+  </section>
+
+  <!-- ============ DESTACADOS ============ -->
+  <section class="destacados" id="destacados">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Farmeos destacados</h2>
+        <p>Las guías más recomendadas por la comunidad aparecerán aquí.</p>
+      </div>
+
+      <div class="empty-state">
+        <span class="empty-icon" aria-hidden="true">⬡</span>
+        <h3>Todavía no hay guías publicadas</h3>
+        <p>Estamos construyendo la primera tanda de contenido. Vuelve pronto o explora las categorías para ver qué se viene.</p>
+        <a href="#categorias" class="btn-primary">Ver categorías</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE / DISCLAIMER ============ -->
+  <section class="sobre" id="sobre">
+    <div class="wrap sobre-inner">
+      <h2>Sobre el proyecto</h2>
+      <p>
+        PokeMMO Farm Guide es un proyecto independiente hecho por la comunidad,
+        sin afiliación con PokeMMO, Nintendo, Game Freak, Creatures Inc. ni
+        The Pokémon Company. Pokémon y todas sus marcas pertenecen a sus
+        respectivos propietarios.
+      </p>
+      <p>
+        Todo el contenido escrito en este sitio es original. No se distribuyen
+        ROMs, archivos del juego ni recursos extraídos directamente de PokeMMO.
+      </p>
+      <p>
+        Las donaciones al proyecto son completamente voluntarias, solo ayudan
+        al mantenimiento del sitio y no otorgan ninguna ventaja dentro del juego.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark" aria-hidden="true">⬡</span>
+      <span>PokeMMO Farm Guide</span>
+    </div>
+    <p class="footer-note">Proyecto de fans, para fans. No afiliado a PokeMMO ni a The Pokémon Company.</p>
+    <nav class="footer-links">
+      <a href="#categorias">Categorías</a>
+      <a href="#destacados">Destacados</a>
+      <a href="#sobre">Sobre el proyecto</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
