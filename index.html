@@ -1,176 +1,697 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" id="meta-theme-color" content="#101114">
 <title>PokeMMO Farm Guide — La base de datos de farmeo hecha por la comunidad</title>
-<meta name="description" content="Guías de farmeo para PokeMMO: money, berries, items, alpha, gym, payday, pickup y breeding. Proyecto de fans, para fans.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-
+<meta name="description" content="Guías de farmeo para PokeMMO: money, berries, items, alpha, gym, payday, pickup, breeding y farmeros. Proyecto de fans, para fans.">
+<script>
+try{if(localStorage.getItem('pfg_theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content','#f2f1ee');}}catch(e){}
+</script>
 <link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/script.js" defer></script>
+<script src="assets/js/ruler.js" defer></script>
+<script src="assets/js/vortex.js" defer></script>
+<script src="assets/js/intro.js" defer></script>
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+<!-- ============ INTRO DE ENTRADA (1 vez por sesión) ============ -->
+<div class="intro-overlay" id="intro-overlay" aria-hidden="true">
+  <div class="intro-stage">
+    <span class="intro-wordmark">POKEMMO FARM GUIDE</span>
+    <span class="intro-mark">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter">
+        <path d="M4.5 23V5h5.5a4 4 0 0 1 0 8H4.5"/>
+        <path d="M16.5 23V5h7"/>
+        <path d="M16.5 13.5h5.5"/>
+      </svg>
+    </span>
+  </div>
+  <span class="intro-skip-hint">Clic o tecla para saltar</span>
+</div>
+
+<!-- ============ BARRA SUPERIOR FIJA ============ -->
 <header class="site-header">
-  <div class="wrap header-inner">
-    <a href="#top" class="logo">
-      <span class="logo-mark" aria-hidden="true">⬡</span>
-      <span class="logo-text">PokeMMO<strong>Farm</strong>Guide</span>
-    </a>
+  <div class="header-inner">
+    <div class="topbar-left">
+      <a href="#inicio" class="topbar-brand" id="topbar-brand">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter">
+            <path d="M4.5 23V5h5.5a4 4 0 0 1 0 8H4.5"/>
+            <path d="M16.5 23V5h7"/>
+            <path d="M16.5 13.5h5.5"/>
+          </svg>
+        </span>
+        <span class="brand-name">PokeMMO Farm Guide</span>
+      </a>
 
-    <nav class="main-nav" id="main-nav">
-      <a href="#categorias">Categorías</a>
-      <a href="#destacados">Destacados</a>
-      <a href="#sobre">Sobre el proyecto</a>
-      <a href="https://github.com/" target="_blank" rel="noopener" class="nav-github">GitHub</a>
-    </nav>
+      <nav class="topbar-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="#inicio" class="is-active" data-nav-section="inicio">Inicio</a>
+        <a href="#categorias" data-nav-section="categorias">Categorías</a>
+        <a href="#destacados" data-nav-section="destacados">Farmeros</a>
+        <a href="#principios" data-nav-section="principios">Principios</a>
+        <a href="#sobre" data-nav-section="sobre">Proyecto</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
 
-    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="topbar-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar a tema claro" aria-pressed="false" title="Cambiar a tema claro">
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <a href="pages/farmeros/index.html" class="topbar-cta">Ver Farmeros</a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main id="top">
+<main id="main-content">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <p class="eyebrow">Proyecto de fans · No afiliado a PokeMMO ni a The Pokémon Company</p>
-      <h1>La ruta más rápida hacia<br><span class="accent-gold">tu próximo farmeo.</span></h1>
-      <p class="hero-sub">
-        Money, berries, items, alpha, gym, payday, pickup y breeding —
-        organizado, verificado por la comunidad y siempre gratis.
+  <!-- ============ 00 / INICIO: HERO CON VÓRTICE Y BUSCADOR ============ -->
+  <section id="inicio" class="hero-vortex" data-ruler-section data-ruler-label="Inicio" data-ruler-code="00">
+
+    <div class="vortex-stage" aria-hidden="false">
+      <div class="vortex-rings" aria-hidden="true">
+        <div class="vortex-ring vortex-ring--1">
+          <svg class="vortex-arcs" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="99" stroke="var(--cat-money)" stroke-width="1.5" stroke-dasharray="45 140 30 220" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="99" stroke="var(--cat-items)" stroke-width="1.5" stroke-dasharray="0 190 50 220" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="vortex-ring vortex-ring--2">
+          <svg class="vortex-arcs" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="99" stroke="var(--cat-berries)" stroke-width="1.5" stroke-dasharray="60 160 35 220" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="99" stroke="var(--cat-payday)" stroke-width="1.5" stroke-dasharray="0 220 40 220" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="vortex-ring vortex-ring--3">
+          <svg class="vortex-arcs" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="99" stroke="var(--cat-alpha)" stroke-width="1.5" stroke-dasharray="55 180 42 220" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="99" stroke="var(--cat-farmeros)" stroke-width="1.5" stroke-dasharray="0 245 65 220" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="vortex-ring vortex-ring--4">
+          <svg class="vortex-arcs" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="99" stroke="var(--cat-pickup)" stroke-width="1.2" stroke-dasharray="30 200 45 220"/>
+          </svg>
+        </div>
+      </div>
+
+      <nav class="vortex-nodes" aria-label="Accesos directos orbitales por categoría">
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/money/index.html" class="vortex-node cat--money" aria-label="Money">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2.5 0 0 0-5 0c0 1.5 1.5 2 2.5 2.3s2.5.8 2.5 2.4a2.5 2.5 0 0 1-5 0"/><path d="M12 6.5v11"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Money</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/berries/index.html" class="vortex-node cat--berries" aria-label="Berries">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 6c-3.8 0-6.5 2.8-6.5 6.8 0 4.2 3.2 8.2 6.5 8.2s6.5-4 6.5-8.2C18.5 8.8 15.8 6 12 6z"/><path d="M12 6V3"/><path d="M12 5c2.2-2 4.8-2 5.5-.5-.9 1.6-3.1 2-5.5.5z"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Berries</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/items/index.html" class="vortex-node cat--items" aria-label="Items">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 6V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V6"/><path d="M8 14h8"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Items</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/gym/index.html" class="vortex-node cat--gym" aria-label="Gym">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3l7 3v5c0 4.6-2.9 8.5-7 10-4.1-1.5-7-5.4-7-10V6z"/><path d="M9.5 12l1.8 1.8 3.7-3.8"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Gym</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/alpha/index.html" class="vortex-node cat--alpha" aria-label="Alpha">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 4L3.5 19h17z"/><path d="M12 10.5v3.5"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Alpha</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/payday/index.html" class="vortex-node cat--payday" aria-label="Payday">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M7 12h.01M17 12h.01"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Payday</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/pickup/index.html" class="vortex-node cat--pickup" aria-label="Pickup">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 12V7a6 6 0 0 1 12 0v5"/><path d="M6 12h3.5V7a2.5 2.5 0 0 1 5 0v5H18"/><path d="M6 15h3.5M14.5 15H18"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Pickup</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/breeding/index.html" class="vortex-node cat--breeding" aria-label="Breeding">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3c-4 0-6.5 6-6.5 10.5a6.5 6.5 0 0 0 13 0C18.5 9 16 3 12 3z"/><path d="M9 12.5c1.5-1 4.5 1 6 0"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Breeding</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="vortex-arm">
+          <div class="vortex-arm-offset">
+            <a href="pages/farmeros/index.html" class="vortex-node cat--farmeros" aria-label="Farmeros">
+              <svg class="vortex-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-5.3 5.3a1.5 1.5 0 0 0 2.1 2.1l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.1-2.1z"/>
+              </svg>
+              <span class="vortex-node-label" aria-hidden="true">Farmeros</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hero-core">
+      <h1 class="hero-wordmark">PokeMMO Farm Guide</h1>
+      <p class="hero-subtitle">La ruta más rápida hacia tu próximo farmeo.</p>
+      <p class="hero-copy">
+        Guías de farmeo y fichas estandarizadas para consultar en segunda pantalla o móvil mientras juegas: equipos, movimientos, IVs, EVs, rutas y Pokémon herramienta.
       </p>
 
-      <form class="search-box" id="search-form" role="search">
-        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-          <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <input type="search" id="search-input" placeholder="Busca una categoría, ítem o zona…" autocomplete="off">
-      </form>
+      <div class="hero-search-wrap">
+        <form class="search-box" id="search-form" role="search">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            aria-label="Buscar categoría o término en español o inglés"
+            placeholder="Busca categoría o término (ej. dinero, crianza, alpha)…"
+            autocomplete="off"
+          >
+          <kbd class="search-kbd" aria-hidden="true">/</kbd>
+          <button type="button" class="search-clear" id="search-clear" aria-label="Limpiar búsqueda" hidden>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </form>
+        <div class="search-meta">
+          <span class="search-count" id="search-count" aria-live="polite">9 categorías</span>
+          <span>Español e inglés · Enter abre resultado único</span>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="pages/farmeros/index.html" class="btn btn-primary">Ver Farmeros disponibles</a>
+        <a href="#categorias" class="btn btn-outline">Explorar categorías ↓</a>
+      </div>
+
+      <p class="hero-facts">PROYECTO DE FANS · GRATIS · SIN CUENTAS · 9 CATEGORÍAS</p>
     </div>
+
   </section>
 
-  <!-- ============ CATEGORÍAS ============ -->
-  <section class="categorias" id="categorias">
+  <!-- ============ 01 / CATEGORÍAS ============ -->
+  <section id="categorias" class="section-band" data-ruler-section data-ruler-label="Categorías" data-ruler-code="01">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Elige tu ruta</h2>
-        <p>Cada categoría es una puerta a guías completas: equipo, movimientos, rutas y consejos.</p>
+      <div class="band-header">
+        <span><span class="band-code">01 / CATEGORÍAS</span></span>
+        <span>9 RUTAS DE FARMEO · ES / EN</span>
       </div>
 
-      <div class="cat-grid" id="cat-grid">
+      <div class="section-body">
+        <div class="section-intro">
+          <h2>Nueve rutas. <span class="bicolor-accent">Un solo atlas.</span></h2>
+          <p>
+            Cada bloque agrupa una categoría de farmeo según PRODUCT.md. Solo Farmeros cuenta con fichas publicadas por ahora; las ocho categorías restantes muestran su estructura prevista en estado Próximamente.
+          </p>
+        </div>
 
-        <a href="pages/money/" class="cat-card" data-cat="money" style="--cat-color:#f2c14e;">
-          <span class="cat-icon">🪙</span>
-          <h3>Money</h3>
-          <p>Las rutas más rentables por hora de juego.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+        <div class="crosshair-box">
+          <span class="crosshair crosshair--tl" aria-hidden="true"></span>
+          <span class="crosshair crosshair--tr" aria-hidden="true"></span>
+          <span class="crosshair crosshair--bl" aria-hidden="true"></span>
+          <span class="crosshair crosshair--br" aria-hidden="true"></span>
 
-        <a href="pages/berries/" class="cat-card" data-cat="berries" style="--cat-color:#ef7c6b;">
-          <span class="cat-icon">🍓</span>
-          <h3>Berries</h3>
-          <p>Dónde y cómo cultivar cada baya de forma eficiente.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+          <div class="lineup-grid" id="cat-grid">
 
-        <a href="pages/items/" class="cat-card" data-cat="items" style="--cat-color:#4fd1c5;">
-          <span class="cat-icon">🎒</span>
-          <h3>Items</h3>
-          <p>Objetos clave y las mejores zonas para conseguirlos.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+            <a href="pages/money/index.html" class="cat-card glow-card cat--money" data-cat="money">
+              <div class="cat-card-meta">
+                <span class="num-badge">01</span>
+                <span class="cat-type">RUTA DE POKÉYEN</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2.5 0 0 0-5 0c0 1.5 1.5 2 2.5 2.3s2.5.8 2.5 2.4a2.5 2.5 0 0 1-5 0"/><path d="M12 6.5v11"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Mon<span class="bicolor-accent">ey</span></h3>
+              <p>Las rutas más rentables por hora de juego.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR MONEY <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
 
-        <a href="pages/gym/" class="cat-card" data-cat="gym" style="--cat-color:#a78bfa;">
-          <span class="cat-icon">🏟️</span>
-          <h3>Gym</h3>
-          <p>Estrategias y equipos para superar cada gimnasio.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+            <a href="pages/berries/index.html" class="cat-card glow-card cat--berries" data-cat="berries">
+              <div class="cat-card-meta">
+                <span class="num-badge">02</span>
+                <span class="cat-type">CULTIVO Y RIEGO</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 6c-3.8 0-6.5 2.8-6.5 6.8 0 4.2 3.2 8.2 6.5 8.2s6.5-4 6.5-8.2C18.5 8.8 15.8 6 12 6z"/><path d="M12 6V3"/><path d="M12 5c2.2-2 4.8-2 5.5-.5-.9 1.6-3.1 2-5.5.5z"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Berr<span class="bicolor-accent">ies</span></h3>
+              <p>Dónde y cómo cultivar cada baya de forma eficiente.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR BERRIES <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
 
-        <a href="pages/alpha/" class="cat-card" data-cat="alpha" style="--cat-color:#ef4444;">
-          <span class="cat-icon">🔺</span>
-          <h3>Alpha</h3>
-          <p>Cacería de Pokémon alpha: ubicaciones y equipo recomendado.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+            <a href="pages/items/index.html" class="cat-card glow-card cat--items" data-cat="items">
+              <div class="cat-card-meta">
+                <span class="num-badge">03</span>
+                <span class="cat-type">OBJETOS CLAVE</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 6V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V6"/><path d="M8 14h8"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Ite<span class="bicolor-accent">ms</span></h3>
+              <p>Objetos clave y las mejores zonas para conseguirlos.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR ITEMS <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
 
-        <a href="pages/payday/" class="cat-card" data-cat="payday" style="--cat-color:#6ee7b7;">
-          <span class="cat-icon">💵</span>
-          <h3>Payday</h3>
-          <p>Farmeo pasivo usando el movimiento Payday.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+            <a href="pages/gym/index.html" class="cat-card glow-card cat--gym" data-cat="gym">
+              <div class="cat-card-meta">
+                <span class="num-badge">04</span>
+                <span class="cat-type">GIMNASIOS</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l7 3v5c0 4.6-2.9 8.5-7 10-4.1-1.5-7-5.4-7-10V6z"/><path d="M9.5 12l1.8 1.8 3.7-3.8"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Gy<span class="bicolor-accent">m</span></h3>
+              <p>Estrategias y equipos para superar cada gimnasio.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR GYM <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
 
-        <a href="pages/pickup/" class="cat-card" data-cat="pickup" style="--cat-color:#60a5fa;">
-          <span class="cat-icon">🧲</span>
-          <h3>Pickup</h3>
-          <p>Equipos y rutas para maximizar la habilidad Pickup.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+            <a href="pages/alpha/index.html" class="cat-card glow-card cat--alpha" data-cat="alpha">
+              <div class="cat-card-meta">
+                <span class="num-badge">05</span>
+                <span class="cat-type">CACERÍA ALPHA</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 4L3.5 19h17z"/><path d="M12 10.5v3.5"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Alp<span class="bicolor-accent">ha</span></h3>
+              <p>Cacería de Pokémon alpha: ubicaciones y equipo recomendado.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR ALPHA <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
 
-        <a href="pages/breeding/" class="cat-card" data-cat="breeding" style="--cat-color:#f472b6;">
-          <span class="cat-icon">🥚</span>
-          <h3>Breeding</h3>
-          <p>Naturalezas, IVs y cadenas de crianza óptimas.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+            <a href="pages/payday/index.html" class="cat-card glow-card cat--payday" data-cat="payday">
+              <div class="cat-card-meta">
+                <span class="num-badge">06</span>
+                <span class="cat-type">FARMEO PASIVO</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M7 12h.01M17 12h.01"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Pay<span class="bicolor-accent">day</span></h3>
+              <p>Farmeo pasivo usando el movimiento Payday.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR PAYDAY <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
 
-        <a href="pages/farmeros/" class="cat-card" data-cat="farmeros" style="--cat-color:#fb923c;">
-          <span class="cat-icon">🧑‍🌾</span>
-          <h3>Farmeros</h3>
-          <p>Pokémon herramienta que se usan dentro de otros farmeos.</p>
-          <span class="cat-count">Guías próximamente</span>
-        </a>
+            <a href="pages/pickup/index.html" class="cat-card glow-card cat--pickup" data-cat="pickup">
+              <div class="cat-card-meta">
+                <span class="num-badge">07</span>
+                <span class="cat-type">RECOGIDA</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 12V7a6 6 0 0 1 12 0v5"/><path d="M6 12h3.5V7a2.5 2.5 0 0 1 5 0v5H18"/><path d="M6 15h3.5M14.5 15H18"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Pick<span class="bicolor-accent">up</span></h3>
+              <p>Equipos y rutas para maximizar la habilidad Pickup.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR PICKUP <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
 
+            <a href="pages/breeding/index.html" class="cat-card glow-card cat--breeding" data-cat="breeding">
+              <div class="cat-card-meta">
+                <span class="num-badge">08</span>
+                <span class="cat-type">CRIANZA E IVS</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">Espacio reservado</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3c-4 0-6.5 6-6.5 10.5a6.5 6.5 0 0 0 13 0C18.5 9 16 3 12 3z"/><path d="M9 12.5c1.5-1 4.5 1 6 0"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Breed<span class="bicolor-accent">ing</span></h3>
+              <p>Naturalezas, IVs y cadenas de crianza óptimas.</p>
+              <div class="chip-row">
+                <span class="chip">PRÓXIMAMENTE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR BREEDING <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
+
+            <a href="pages/farmeros/index.html" class="cat-card glow-card cat--farmeros" data-cat="farmeros">
+              <div class="cat-card-meta">
+                <span class="num-badge">09</span>
+                <span class="cat-type">POKÉMON HERRAMIENTA</span>
+              </div>
+              <div class="card-visual-wrap">
+                <div class="card-visual" aria-hidden="true">
+                  <div class="card-visual-blueprint">
+                    <span class="blueprint-tag">2 fichas activas</span>
+                    <div class="blueprint-bars"><span></span><span></span></div>
+                  </div>
+                </div>
+                <span class="cat-icon-tile" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-5.3 5.3a1.5 1.5 0 0 0 2.1 2.1l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.1-2.1z"/>
+                  </svg>
+                </span>
+              </div>
+              <h3>Farme<span class="bicolor-accent">ros</span></h3>
+              <p>Pokémon herramienta que se usan dentro de otros farmeos.</p>
+              <div class="chip-row">
+                <span class="chip is-available">DISPONIBLE</span>
+                <span class="chip">VIDEO PRÓXIMAMENTE</span>
+              </div>
+              <span class="cat-explore">EXPLORAR FARMEROS <span class="explore-arrow" aria-hidden="true">↗</span></span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="empty-state empty-state--centered" id="no-results" role="status" hidden>
+          <span class="empty-state-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </span>
+          <h3>Sin coincidencias</h3>
+          <p>Ninguna de las 9 categorías coincide con esa búsqueda. Prueba con dinero, bayas, alpha, breeding o smeargle.</p>
+          <button type="button" class="btn btn-outline" id="reset-search">Limpiar búsqueda</button>
+        </div>
       </div>
-
-      <p class="no-results" id="no-results" hidden>No encontramos categorías que coincidan con tu búsqueda.</p>
     </div>
   </section>
 
-  <!-- ============ DESTACADOS ============ -->
-  <section class="destacados" id="destacados">
+  <!-- ============ 02 / FARMEROS DESTACADOS ============ -->
+  <section id="destacados" class="section-band cat--farmeros" data-ruler-section data-ruler-label="Farmeros destacados" data-ruler-code="02">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Farmeos destacados</h2>
-        <p>Las guías más recomendadas por la comunidad aparecerán aquí.</p>
+      <div class="band-header">
+        <span><span class="band-code">02 / <span class="band-code-accent">FARMEROS DESTACADOS</span></span></span>
+        <span>FICHAS DISPONIBLES · CAPTURA Y UTILIDAD</span>
       </div>
 
-      <div class="empty-state">
-        <span class="empty-icon" aria-hidden="true">⬡</span>
-        <h3>Todavía no hay guías publicadas</h3>
-        <p>Estamos construyendo la primera tanda de contenido. Vuelve pronto o explora las categorías para ver qué se viene.</p>
-        <a href="#categorias" class="btn-primary">Ver categorías</a>
+      <div class="section-body">
+        <div class="section-intro">
+          <h2>Herramientas listas <span class="bicolor-accent">para tu equipo.</span></h2>
+          <p>
+            Smeargle y Breloom ya tienen fichas publicadas con sus roles, movimientos, IVs, EVs, habilidades, objetos y enlaces cruzados hacia las categorías donde se usan.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <a href="pages/farmeros/smeargle.html" class="poke-card glow-card cat--farmeros">
+            <div class="poke-card-top">
+              <span class="num-badge">09.1</span>
+              <span class="chip is-available">DISPONIBLE</span>
+            </div>
+            <h3>Smear<span class="bicolor-accent">gle</span></h3>
+            <p>Copia movimientos con Sketch — clave para armar sets de captura y de crianza. Versiones: Cazador normal y Esclavo MO.</p>
+            <div class="chip-row">
+              <span class="chip">CAZADOR NORMAL</span>
+              <span class="chip">ESCLAVO MO</span>
+              <span class="chip">VIDEO PRÓXIMAMENTE</span>
+            </div>
+            <span class="cat-explore">ABRIR FICHA DE SMEARGLE <span class="explore-arrow" aria-hidden="true">↗</span></span>
+          </a>
+
+          <a href="pages/farmeros/breloom.html" class="poke-card glow-card cat--farmeros">
+            <div class="poke-card-top">
+              <span class="num-badge">09.2</span>
+              <span class="chip is-available">DISPONIBLE</span>
+            </div>
+            <h3>Brel<span class="bicolor-accent">oom</span></h3>
+            <p>Espora + Falso Tortazo para capturar sin arriesgar el debilitado, con Sustituto y Ultrapuño para sostenerse.</p>
+            <div class="chip-row">
+              <span class="chip">CAZADOR NORMAL</span>
+              <span class="chip">VIDEO PRÓXIMAMENTE</span>
+            </div>
+            <span class="cat-explore">ABRIR FICHA DE BRELOOM <span class="explore-arrow" aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+
+        <div class="empty-state">
+          <div class="chip-row">
+            <span class="chip">PRÓXIMAMENTE</span>
+          </div>
+          <h3>Espacio reservado para nuevas fichas y farmeos</h3>
+          <p>Aún no hay guías destacadas en las otras 8 categorías. Se irán sumando aquí a medida que se publiquen.</p>
+          <a href="pages/farmeros/index.html" class="btn btn-outline">Ver listado de Farmeros</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SOBRE / DISCLAIMER ============ -->
-  <section class="sobre" id="sobre">
-    <div class="wrap sobre-inner">
-      <h2>Sobre el proyecto</h2>
-      <p>
-        PokeMMO Farm Guide es un proyecto independiente hecho por la comunidad,
-        sin afiliación con PokeMMO, Nintendo, Game Freak, Creatures Inc. ni
-        The Pokémon Company. Pokémon y todas sus marcas pertenecen a sus
-        respectivos propietarios.
-      </p>
-      <p>
-        Todo el contenido escrito en este sitio es original. No se distribuyen
-        ROMs, archivos del juego ni recursos extraídos directamente de PokeMMO.
-      </p>
-      <p>
-        Las donaciones al proyecto son completamente voluntarias, solo ayudan
-        al mantenimiento del sitio y no otorgan ninguna ventaja dentro del juego.
-      </p>
+  <!-- ============ 03 / PRINCIPIOS ============ -->
+  <section id="principios" class="section-band cat--pickup" data-ruler-section data-ruler-label="Principios" data-ruler-code="03">
+    <div class="wrap">
+      <div class="band-header">
+        <span><span class="band-code">03 / <span class="band-code-accent">PRINCIPIOS</span></span></span>
+        <span>CRITERIOS DE PRODUCTO · PRODUCT.MD</span>
+      </div>
+
+      <div class="section-body">
+        <div class="section-intro">
+          <h2>Pensado para consultar <span class="bicolor-accent">mientras juegas.</span></h2>
+          <p>Cinco reglas fijas que mantienen el sitio útil cuando tienes PokeMMO abierto en la otra pantalla o en el teléfono.</p>
+        </div>
+
+        <div class="crosshair-box">
+          <span class="crosshair crosshair--tl" aria-hidden="true"></span>
+          <span class="crosshair crosshair--tr" aria-hidden="true"></span>
+          <span class="crosshair crosshair--bl" aria-hidden="true"></span>
+          <span class="crosshair crosshair--br" aria-hidden="true"></span>
+
+          <div class="principles-grid">
+            <article class="principle-item">
+              <span class="principle-num">01 / ESCANEO EN SEGUNDA PANTALLA</span>
+              <h3>Encuentra el dato al instante</h3>
+              <p>Cada categoría y ficha muestra movimientos, IVs, EVs, naturaleza y objeto con jerarquía clara en escritorio o móvil.</p>
+            </article>
+
+            <article class="principle-item">
+              <span class="principle-num">02 / HERRAMIENTAS CONECTADAS</span>
+              <h3>Un sistema enlazado</h3>
+              <p>Los Pokémon herramienta (*Farmeros*) se enlazan de forma cruzada con las categorías de farmeo donde realmente se utilizan.</p>
+            </article>
+
+            <article class="principle-item">
+              <span class="principle-num">03 / CERO FRICCIÓN ESTÁTICA</span>
+              <h3>Rápido, gratis y sin cuentas</h3>
+              <p>HTML, CSS y JavaScript vanilla en sitio 100% estático. Sin registros, sin muros de pago y ligero en cualquier conexión.</p>
+            </article>
+
+            <article class="principle-item">
+              <span class="principle-num">04 / VOCABULARIO MIXTO ES/EN</span>
+              <h3>Como buscan los jugadores</h3>
+              <p>Explicaciones directas en español respetando nombres de categorías en inglés y sinónimos bilingües en el buscador.</p>
+            </article>
+
+            <article class="principle-item">
+              <span class="principle-num">05 / CONTENIDO HONESTO Y ORIGINAL</span>
+              <h3>Sin datos ni enlaces inventados</h3>
+              <p>Lo que aún no existe se marca como Próximamente, sin métricas ficticias ni recursos extraídos directamente del juego.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 / PROYECTO DE FANS ============ -->
+  <section id="sobre" class="section-band cat--payday" data-ruler-section data-ruler-label="Proyecto de fans" data-ruler-code="04">
+    <div class="wrap">
+      <div class="band-header">
+        <span><span class="band-code">04 / <span class="band-code-accent">PROYECTO DE FANS</span></span></span>
+        <span>AVISO LEGAL · SIN AFILIACIÓN</span>
+      </div>
+
+      <div class="section-body">
+        <div class="section-intro">
+          <h2>Hecho por fans, <span class="bicolor-accent">para fans.</span></h2>
+        </div>
+
+        <div class="disclaimer-stack">
+          <p>
+            PokeMMO Farm Guide es un proyecto independiente hecho por la comunidad,
+            sin afiliación con PokeMMO, Nintendo, Game Freak, Creatures Inc. ni
+            The Pokémon Company. Pokémon y todas sus marcas pertenecen a sus
+            respectivos propietarios.
+          </p>
+          <p>
+            Todo el contenido escrito en este sitio es original. No se distribuyen
+            ROMs, archivos del juego ni recursos extraídos directamente de PokeMMO.
+          </p>
+          <p>
+            Las donaciones al proyecto son completamente voluntarias, solo ayudan
+            al mantenimiento del sitio y no otorgan ninguna ventaja dentro del juego.
+          </p>
+        </div>
+
+        <div class="start-actions">
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver en GitHub ↗</a>
+          <a href="#inicio" class="btn btn-primary">Volver arriba ↑</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -180,18 +701,25 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-brand">
-      <span class="logo-mark" aria-hidden="true">⬡</span>
+      <span class="brand-symbol" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter">
+          <path d="M4.5 23V5h5.5a4 4 0 0 1 0 8H4.5"/>
+          <path d="M16.5 23V5h7"/>
+          <path d="M16.5 13.5h5.5"/>
+        </svg>
+      </span>
       <span>PokeMMO Farm Guide</span>
     </div>
     <p class="footer-note">Proyecto de fans, para fans. No afiliado a PokeMMO ni a The Pokémon Company.</p>
-    <nav class="footer-links">
+    <nav class="footer-links" aria-label="Enlaces del pie de página">
+      <a href="#inicio">Inicio</a>
       <a href="#categorias">Categorías</a>
-      <a href="#destacados">Destacados</a>
-      <a href="#sobre">Sobre el proyecto</a>
+      <a href="pages/farmeros/index.html">Farmeros</a>
+      <a href="#principios">Principios</a>
+      <a href="#sobre">Proyecto</a>
     </nav>
   </div>
 </footer>
 
-<script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,98 +1,292 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" id="meta-theme-color" content="#101114">
 <title>Breloom — Farmeros — PokeMMO Farm Guide</title>
 <meta name="robots" content="noindex">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-
+<script>
+try{if(localStorage.getItem('pfg_theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content','#f2f1ee');}}catch(e){}
+</script>
 <link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../../assets/js/script.js" defer></script>
+<script src="../../assets/js/ruler.js" defer></script>
 </head>
-<body>
+<body class="cat--farmeros">
 
-<main class="poke-detail">
-  <div class="wrap">
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
-    <a href="index.html" class="placeholder-back" style="margin-bottom:20px; display:inline-block;">← Volver a Farmeros</a>
+<!-- ============ BARRA SUPERIOR FIJA ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="topbar-left">
+      <a href="../../index.html" class="topbar-brand" id="topbar-brand">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter">
+            <path d="M4.5 23V5h5.5a4 4 0 0 1 0 8H4.5"/>
+            <path d="M16.5 23V5h7"/>
+            <path d="M16.5 13.5h5.5"/>
+          </svg>
+        </span>
+        <span class="brand-name">PokeMMO Farm Guide</span>
+      </a>
 
-    <div class="poke-detail-head">
-      <h1 style="font-family:var(--font-display); font-size:clamp(1.8rem,4vw,2.4rem); margin:12px 0 10px;">Breloom</h1>
-      <p style="color:var(--text-dim); margin:0;">
-        Combinación de Espora + Falso Tortazo para capturar sin arriesgar el debilitado,
-        con Sustituto y Ultrapuño para sostenerse en el combate.
-      </p>
+      <nav class="topbar-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="../../index.html#inicio">Inicio</a>
+        <a href="../../index.html#categorias">Categorías</a>
+        <a href="index.html" class="is-active" aria-current="page">Farmeros</a>
+        <a href="../../index.html#principios">Principios</a>
+        <a href="../../index.html#sobre">Proyecto</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
     </div>
 
-    <h2 style="font-family:var(--font-display); font-size:1.1rem; margin:36px 0 14px;">Versiones</h2>
+    <div class="topbar-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar a tema claro" aria-pressed="false" title="Cambiar a tema claro">
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
 
-    <div class="version-grid">
+      <a href="smeargle.html" class="topbar-cta">Smeargle ↗</a>
 
-      <div class="version-card">
-        <h3>Cazador normal</h3>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-        <div class="version-block">
-          <span class="version-label">Movimientos</span>
-          <div class="move-tags">
-            <span class="move-tag">Falso Tortazo</span>
-            <span class="move-tag">Espora</span>
-            <span class="move-tag">Sustituto</span>
-            <span class="move-tag">Ultrapuño</span>
+<main id="main-content" class="detail-shell">
+  <div class="wrap">
+    <div class="detail-rail-wrap">
+
+      <!-- ============ 01 / RESUMEN ============ -->
+      <section id="resumen" class="section-band" data-ruler-section data-ruler-label="Resumen" data-ruler-code="01">
+        <div class="band-header">
+          <span><span class="band-code">09.2 / <span class="band-code-accent">BRELOOM</span></span></span>
+          <span>FARMERO · CAPTURA SEGURA · DISPONIBLE</span>
+        </div>
+
+        <div class="detail-hero">
+          <nav class="detail-breadcrumb" aria-label="Ruta de navegación">
+            <ol>
+              <li><a href="../../index.html">Inicio</a></li>
+              <li><a href="index.html">Farmeros</a></li>
+              <li><span aria-current="page">Breloom</span></li>
+            </ol>
+          </nav>
+
+          <div class="detail-icon-stage" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-5.3 5.3a1.5 1.5 0 0 0 2.1 2.1l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.1-2.1z"/>
+            </svg>
+          </div>
+
+          <div class="detail-identity">
+            <span class="num-badge">09.2</span>
+            <span class="detail-identity-name">Brel<span class="bicolor-accent">oom</span></span>
+          </div>
+
+          <h1>Espora y Falso Tortazo para <span class="bicolor-accent">capturar sin riesgo.</span></h1>
+          <p class="detail-hero-desc">
+            Combinación de Espora + Falso Tortazo para capturar sin arriesgar el debilitado, con Sustituto y Ultrapuño para sostenerse en el combate.
+          </p>
+
+          <div class="chip-row">
+            <span class="chip is-available">DISPONIBLE</span>
+            <span class="chip">1 VERSIÓN</span>
+            <span class="chip">VIDEO PRÓXIMAMENTE</span>
           </div>
         </div>
+      </section>
 
-        <div class="version-block">
-          <span class="version-label">IVs</span>
-          <p class="version-text">31 en Ataque y Velocidad</p>
+      <!-- ============ 02 / GUÍAS (VERSIONES POR ROL) ============ -->
+      <section id="guias" class="section-band" data-ruler-section data-ruler-label="Guías" data-ruler-code="02">
+        <div class="band-header">
+          <span><span class="band-code">02 / <span class="band-code-accent">GUÍAS POR ROL</span></span></span>
+          <span>CAZADOR NORMAL · TOXISFERA</span>
         </div>
 
-        <div class="version-block">
-          <span class="version-label">EVs</span>
-          <p class="version-text">252 Ataque / 252 Velocidad</p>
+        <div class="section-body">
+          <div class="section-intro">
+            <h2>Versión <span class="bicolor-accent">recomendada.</span></h2>
+            <p>Configuración estándar orientada a captura segura y aguante en combate.</p>
+          </div>
+
+          <div class="version-grid">
+
+            <article class="version-card">
+              <div class="version-card-head">
+                <h3>Cazador normal</h3>
+                <span class="chip is-available">CAPTURA</span>
+              </div>
+
+              <div>
+                <span class="spec-label">Movimientos</span>
+                <ul class="move-grid">
+                  <li class="move-tag">Falso Tortazo</li>
+                  <li class="move-tag">Espora</li>
+                  <li class="move-tag">Sustituto</li>
+                  <li class="move-tag">Ultrapuño</li>
+                </ul>
+              </div>
+
+              <dl class="build-specs">
+                <div class="spec-row">
+                  <dt>IVs</dt>
+                  <dd>31 en Ataque y Velocidad</dd>
+                </div>
+                <div class="spec-row">
+                  <dt>EVs</dt>
+                  <dd>252 Ataque / 252 Velocidad</dd>
+                </div>
+                <div class="spec-row">
+                  <dt>Habilidad</dt>
+                  <dd>Antídoto</dd>
+                </div>
+                <div class="spec-row">
+                  <dt>Objeto equipado</dt>
+                  <dd>Toxisfera</dd>
+                </div>
+              </dl>
+
+              <div class="video-slot">
+                <a href="#" class="video-guide-btn is-empty" aria-disabled="true">
+                  <span class="vg-play" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                  Cómo conseguirlo y entrenarlo
+                </a>
+                <!-- Cuando tengas el link del video, reemplaza el <a> de arriba por:
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID" class="video-guide-btn" target="_blank" rel="noopener noreferrer">
+                  <span class="vg-play" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                  Ver guía en YouTube
+                </a>
+                -->
+              </div>
+            </article>
+
+            <!-- Para añadir otra versión de Breloom, duplica un bloque <article class="version-card"> arriba. -->
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 / VIDEOS ============ -->
+      <section id="videos" class="section-band" data-ruler-section data-ruler-label="Videos" data-ruler-code="03">
+        <div class="band-header">
+          <span><span class="band-code">03 / <span class="band-code-accent">VIDEOS</span></span></span>
+          <span>YOUTUBE · PRÓXIMAMENTE</span>
         </div>
 
-        <div class="version-block">
-          <span class="version-label">Habilidad</span>
-          <p class="version-text">Antídoto</p>
+        <div class="section-body">
+          <div class="video-slot">
+            <h3>Video guía de Breloom</h3>
+            <p>El enlace a la video-guía de YouTube se habilitará aquí cuando esté publicado.</p>
+            <a href="#" class="video-guide-btn is-empty" aria-disabled="true">
+              <span class="vg-play" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              Video próximamente
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 / SE USA EN ============ -->
+      <section id="se-usa-en" class="section-band" data-ruler-section data-ruler-label="Se usa en" data-ruler-code="04">
+        <div class="band-header">
+          <span><span class="band-code">04 / <span class="band-code-accent">SE USA EN</span></span></span>
+          <span>ENLACES CRUZADOS</span>
         </div>
 
-        <div class="version-block">
-          <span class="version-label">Objeto equipado</span>
-          <p class="version-text">Toxisfera</p>
+        <div class="section-body">
+          <div class="uses-in-grid">
+            <a href="../alpha/index.html" class="use-card glow-card cat--alpha">
+              <span class="use-card-main">
+                <span class="use-card-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 4L3.5 19h17z"/><path d="M12 10.5v3.5"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="use-card-title">Alpha</span>
+                  <span class="use-card-sub">Cacería y captura</span>
+                </span>
+              </span>
+              <span class="explore-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="../breeding/index.html" class="use-card glow-card cat--breeding">
+              <span class="use-card-main">
+                <span class="use-card-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3c-4 0-6.5 6-6.5 10.5a6.5 6.5 0 0 0 13 0C18.5 9 16 3 12 3z"/><path d="M9 12.5c1.5-1 4.5 1 6 0"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="use-card-title">Breeding</span>
+                  <span class="use-card-sub">Captura de padres</span>
+                </span>
+              </span>
+              <span class="explore-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 / EMPEZAR ============ -->
+      <section id="empezar" class="section-band" data-ruler-section data-ruler-label="Empezar" data-ruler-code="05">
+        <div class="band-header">
+          <span><span class="band-code">05 / <span class="band-code-accent">EMPEZAR</span></span></span>
+          <span>NAVEGACIÓN RÁPIDA</span>
         </div>
 
-        <a href="#" class="video-guide-btn is-empty" target="_blank" rel="noopener">
-          <span class="vg-play">▶</span>
-          Cómo conseguirlo y entrenarlo
-        </a>
-        <!-- Cuando tengas el link del video, reemplaza el <a> de arriba por:
-        <a href="https://www.youtube.com/watch?v=VIDEO_ID" class="video-guide-btn" target="_blank" rel="noopener">
-          <span class="vg-play">▶</span>
-          Ver guía en YouTube
-        </a>
-        -->
-      </div>
+        <div class="section-body">
+          <div class="start-actions">
+            <a href="index.html" class="btn btn-primary">← Volver a Farmeros</a>
+            <a href="smeargle.html" class="btn btn-outline">Ver ficha de Smeargle</a>
+            <a href="../../index.html#categorias" class="btn btn-outline">Todas las categorías</a>
+          </div>
+        </div>
+      </section>
 
     </div>
-
-    <h2 style="font-family:var(--font-display); font-size:1.1rem; margin:36px 0 14px;">Se usa en</h2>
-
-    <div class="uses-in-grid">
-      <a href="../alpha/index.html" class="use-card" style="--cat-color:#ef4444;">
-        <span class="use-icon" aria-hidden="true">🔺</span>
-        <span class="use-label">Alpha</span>
-      </a>
-      <a href="../breeding/index.html" class="use-card" style="--cat-color:#f472b6;">
-        <span class="use-icon" aria-hidden="true">🥚</span>
-        <span class="use-label">Breeding</span>
-      </a>
-    </div>
-
   </div>
 </main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-symbol" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter">
+          <path d="M4.5 23V5h5.5a4 4 0 0 1 0 8H4.5"/>
+          <path d="M16.5 23V5h7"/>
+          <path d="M16.5 13.5h5.5"/>
+        </svg>
+      </span>
+      <span>PokeMMO Farm Guide</span>
+    </div>
+    <p class="footer-note">Proyecto de fans, para fans. No afiliado a PokeMMO ni a The Pokémon Company.</p>
+    <nav class="footer-links" aria-label="Enlaces del pie de página">
+      <a href="../../index.html#inicio">Inicio</a>
+      <a href="../../index.html#categorias">Categorías</a>
+      <a href="index.html">Farmeros</a>
+      <a href="../../index.html#sobre">Proyecto</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>

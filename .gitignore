@@ -1,0 +1,10 @@
+# Impeccable local context and config
+PRODUCT.md
+DESIGN.md
+.impeccable/
+.reanimate/
+
+# OS / filesystem artifacts
+.DS_Store
+Thumbs.db
+desktop.ini

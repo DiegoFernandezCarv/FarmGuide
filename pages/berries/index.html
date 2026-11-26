@@ -1,42 +1,271 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" id="meta-theme-color" content="#101114">
 <title>Berries — PokeMMO Farm Guide</title>
 <meta name="robots" content="noindex">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-
+<script>
+try{if(localStorage.getItem('pfg_theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content','#f2f1ee');}}catch(e){}
+</script>
 <link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../../assets/js/script.js" defer></script>
+<script src="../../assets/js/ruler.js" defer></script>
 </head>
-<body>
+<body class="cat--berries">
 
-<main class="placeholder-page">
-  <div class="placeholder-inner">
-    <span class="placeholder-icon" style="color:#ef7c6b;" aria-hidden="true">🍓</span>
-    <h1>Aún no hay guías disponibles</h1>
-    <p>Estamos preparando el contenido de <strong>Berries</strong>. Vuelve pronto.</p>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
-    <div class="video-guide-wrap">
-      <h2>Video guía</h2>
-      <a href="#" class="video-guide-btn is-empty" target="_blank" rel="noopener">
-        <span class="vg-play">▶</span>
-        Video próximamente
+<!-- ============ BARRA SUPERIOR FIJA ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="topbar-left">
+      <a href="../../index.html" class="topbar-brand" id="topbar-brand">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter">
+            <path d="M4.5 23V5h5.5a4 4 0 0 1 0 8H4.5"/>
+            <path d="M16.5 23V5h7"/>
+            <path d="M16.5 13.5h5.5"/>
+          </svg>
+        </span>
+        <span class="brand-name">PokeMMO Farm Guide</span>
       </a>
-      <!-- Cuando tengas el link del video, reemplaza el <a> de arriba por:
-      <a href="https://www.youtube.com/watch?v=VIDEO_ID" class="video-guide-btn" target="_blank" rel="noopener">
-        <span class="vg-play">▶</span>
-        Ver guía en YouTube
-      </a>
-      -->
+
+      <nav class="topbar-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="../../index.html#inicio">Inicio</a>
+        <a href="../../index.html#categorias" class="is-active" aria-current="page">Categorías</a>
+        <a href="../farmeros/index.html">Farmeros</a>
+        <a href="../../index.html#principios">Principios</a>
+        <a href="../../index.html#sobre">Proyecto</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
     </div>
 
-    <a href="../../index.html" class="placeholder-back">← Volver al inicio</a>
+    <div class="topbar-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar a tema claro" aria-pressed="false" title="Cambiar a tema claro">
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <a href="../farmeros/index.html" class="topbar-cta">Farmeros ↗</a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+        <span class="nav-toggle-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="detail-shell">
+  <div class="wrap">
+    <div class="detail-rail-wrap">
+
+      <!-- ============ 01 / RESUMEN ============ -->
+      <section id="resumen" class="section-band" data-ruler-section data-ruler-label="Resumen" data-ruler-code="01">
+        <div class="band-header">
+          <span><span class="band-code">02 / <span class="band-code-accent">BERRIES</span></span></span>
+          <span>CULTIVO DE BAYAS · PRÓXIMAMENTE</span>
+        </div>
+
+        <div class="detail-hero">
+          <nav class="detail-breadcrumb" aria-label="Ruta de navegación">
+            <ol>
+              <li><a href="../../index.html">Inicio</a></li>
+              <li><a href="../../index.html#categorias">Categorías</a></li>
+              <li><span aria-current="page">Berries</span></li>
+            </ol>
+          </nav>
+
+          <div class="detail-icon-stage" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 6c-3.8 0-6.5 2.8-6.5 6.8 0 4.2 3.2 8.2 6.5 8.2s6.5-4 6.5-8.2C18.5 8.8 15.8 6 12 6z"/><path d="M12 6V3"/><path d="M12 5c2.2-2 4.8-2 5.5-.5-.9 1.6-3.1 2-5.5.5z"/>
+            </svg>
+          </div>
+
+          <div class="detail-identity">
+            <span class="num-badge">02</span>
+            <span class="detail-identity-name">Berr<span class="bicolor-accent">ies</span></span>
+          </div>
+
+          <h1>Dónde y cómo cultivar cada baya <span class="bicolor-accent">de forma eficiente.</span></h1>
+          <p class="detail-hero-desc">
+            Esta sección documentará combinaciones de semillas, ciclos de riego, parcelas y recorridos para el cultivo de bayas en PokeMMO.
+          </p>
+
+          <div class="chip-row">
+            <span class="chip">PRÓXIMAMENTE</span>
+            <span class="chip">VIDEO PRÓXIMAMENTE</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 02 / GUÍAS ============ -->
+      <section id="guias" class="section-band" data-ruler-section data-ruler-label="Guías" data-ruler-code="02">
+        <div class="band-header">
+          <span><span class="band-code">02 / <span class="band-code-accent">GUÍAS</span></span></span>
+          <span>ESTRUCTURA PREVISTA · PRÓXIMAMENTE</span>
+        </div>
+
+        <div class="section-body">
+          <div class="section-intro">
+            <h2>Espacios reservados <span class="bicolor-accent">sin guías aún.</span></h2>
+            <p>Todavía no hay contenido publicado en Berries. Cuando estén disponibles, las guías seguirán esta estructura estándar.</p>
+          </div>
+
+          <!-- Para insertar una guía nueva en Berries:
+               Reemplaza los .guide-slot por tarjetas reales usando .version-card / .build-specs. -->
+          <div class="guide-slots-grid guide-slots-grid--4">
+            <article class="guide-slot">
+              <div class="guide-slot-head">
+                <h3>Equipos (Teams)</h3>
+                <span class="chip">PRÓXIMAMENTE</span>
+              </div>
+              <p>Pokémon de apoyo, recolección de semillas y utilidad en ruta.</p>
+              <div class="guide-skeleton" aria-hidden="true">
+                <span class="skeleton-bar skeleton-bar--w"></span>
+                <span class="skeleton-bar skeleton-bar--m"></span>
+                <span class="skeleton-bar skeleton-bar--s"></span>
+              </div>
+            </article>
+
+            <article class="guide-slot">
+              <div class="guide-slot-head">
+                <h3>Movimientos</h3>
+                <span class="chip">PRÓXIMAMENTE</span>
+              </div>
+              <p>Habilidades y movimientos útiles para preparar semillas.</p>
+              <div class="guide-skeleton" aria-hidden="true">
+                <span class="skeleton-bar skeleton-bar--m"></span>
+                <span class="skeleton-bar skeleton-bar--w"></span>
+                <span class="skeleton-bar skeleton-bar--s"></span>
+              </div>
+            </article>
+
+            <article class="guide-slot">
+              <div class="guide-slot-head">
+                <h3>IVs / EVs y tiempos</h3>
+                <span class="chip">PRÓXIMAMENTE</span>
+              </div>
+              <p>Intervalos de riego, ciclos y requisitos de cultivo.</p>
+              <div class="guide-skeleton" aria-hidden="true">
+                <span class="skeleton-bar skeleton-bar--w"></span>
+                <span class="skeleton-bar skeleton-bar--s"></span>
+                <span class="skeleton-bar skeleton-bar--m"></span>
+              </div>
+            </article>
+
+            <article class="guide-slot">
+              <div class="guide-slot-head">
+                <h3>Rutas y parcelas</h3>
+                <span class="chip">PRÓXIMAMENTE</span>
+              </div>
+              <p>Ubicación de huertos y recorrido recomendado de cosecha.</p>
+              <div class="guide-skeleton" aria-hidden="true">
+                <span class="skeleton-bar skeleton-bar--m"></span>
+                <span class="skeleton-bar skeleton-bar--s"></span>
+                <span class="skeleton-bar skeleton-bar--w"></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 / VIDEOS ============ -->
+      <section id="videos" class="section-band" data-ruler-section data-ruler-label="Videos" data-ruler-code="03">
+        <div class="band-header">
+          <span><span class="band-code">03 / <span class="band-code-accent">VIDEOS</span></span></span>
+          <span>YOUTUBE · PRÓXIMAMENTE</span>
+        </div>
+
+        <div class="section-body">
+          <div class="video-slot">
+            <h3>Video guía de Berries</h3>
+            <p>El enlace al video de YouTube permanecerá deshabilitado hasta que exista una guía publicada.</p>
+            <a href="#" class="video-guide-btn is-empty" aria-disabled="true">
+              <span class="vg-play" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              Video próximamente
+            </a>
+            <!-- Cuando tengas el link del video, reemplaza el <a> de arriba por:
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID" class="video-guide-btn" target="_blank" rel="noopener noreferrer">
+              <span class="vg-play" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              Ver guía en YouTube
+            </a>
+            -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 / SE USA EN ============ -->
+      <section id="se-usa-en" class="section-band" data-ruler-section data-ruler-label="Se usa en" data-ruler-code="04">
+        <div class="band-header">
+          <span><span class="band-code">04 / <span class="band-code-accent">SE USA EN</span></span></span>
+          <span>FARMEROS RELACIONADOS</span>
+        </div>
+
+        <div class="section-body">
+          <div class="empty-state">
+            <span class="chip">PRÓXIMAMENTE</span>
+            <h3>Aún no hay Farmeros enlazados a Berries</h3>
+            <p>Cuando se publiquen guías de esta categoría, aquí aparecerán los Pokémon herramienta vinculados.</p>
+            <a href="../farmeros/index.html" class="btn btn-outline">Explorar Farmeros disponibles</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 / EMPEZAR ============ -->
+      <section id="empezar" class="section-band" data-ruler-section data-ruler-label="Empezar" data-ruler-code="05">
+        <div class="band-header">
+          <span><span class="band-code">05 / <span class="band-code-accent">EMPEZAR</span></span></span>
+          <span>NAVEGACIÓN RÁPIDA</span>
+        </div>
+
+        <div class="section-body">
+          <div class="start-actions">
+            <a href="../../index.html#categorias" class="btn btn-primary">Volver a categorías</a>
+            <a href="../../index.html#inicio" class="btn btn-outline">Ir al buscador ES/EN</a>
+            <a href="../farmeros/index.html" class="btn btn-outline">Ver Farmeros</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
   </div>
 </main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-symbol" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter">
+          <path d="M4.5 23V5h5.5a4 4 0 0 1 0 8H4.5"/>
+          <path d="M16.5 23V5h7"/>
+          <path d="M16.5 13.5h5.5"/>
+        </svg>
+      </span>
+      <span>PokeMMO Farm Guide</span>
+    </div>
+    <p class="footer-note">Proyecto de fans, para fans. No afiliado a PokeMMO ni a The Pokémon Company.</p>
+    <nav class="footer-links" aria-label="Enlaces del pie de página">
+      <a href="../../index.html#inicio">Inicio</a>
+      <a href="../../index.html#categorias">Categorías</a>
+      <a href="../farmeros/index.html">Farmeros</a>
+      <a href="../../index.html#sobre">Proyecto</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
